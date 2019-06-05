@@ -1,0 +1,45 @@
+-gerer le cas O_CREAT quand il est tt seul
+-gerer le cas ou il ya deja une file avec un nom qui existe ??
+-les option au moment de l'initialisation a modifié (dans les fonction d'init..)
+-soucis de projection du tab circulaire ? (comment dire que chaque msg a une taille max len_max sans projeter chaque case du tab...)
+
+
+beug quand il y a deux ecriture de suite, le deuxieme est bloqué .. U_u // reglé
+
+
+// beug mmap msg send quand le processus est seulement en ecriture... O.o
+
+// a revoir les options (changer juste le mmap ..)
+
+// verifie msg send/receive avec les options
+
+a voir :
+  le bug du flag sur mmap.............
+  gerer le o_exec sur la creation.......... (FAIT !!)
+  gerer le cas du o_write only prk ca donne err ..ff
+
+/*
+  on peut pas ouvrir en lecteur et faire un ftruncate
+  on peut pas ouvrir en ecriture et lire le shm dans la projection
+*/
+
+---> gestion des droits ! done
+
+---> projection anon ! done
+
+
+beug nbr message ? (non)
+
+O_RDWR avec lecture ? (fonctionne)
+
+
+plusieurs lecture avec plusieurs ecriture a partir de p.terminaux ?? pas encore
+    --> ok !
+
+le meme proc ppas ecrire plusieurs fois ?
+      --> ok !
+
+un proc avec plusieurs fils ecrivent pour librer les proc fils d'un autre terminal ??
+
+
+ajouter un teste d atomicité de lecture par lots!!!!!!!!!
